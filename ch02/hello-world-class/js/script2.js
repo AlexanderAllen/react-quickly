@@ -1,4 +1,4 @@
-let h1 = React.createElement('h1', null, 'Hello world!')
+//let h1 = React.createElement('h1', null, 'Hello world!')
 
 // Defines a React component class called "HelloWorld".
 // By convention, the names of variables containing React components are
@@ -23,10 +23,11 @@ class HelloWorld extends React.Component {
   render() {
     console.log(Object.isFrozen(this.props));
 
-    // Our createElement implementation returns a <div> with two h1 elements
-    // inside.
-    // The h1's point to the same h1 React object in line 1.
-    return React.createElement('div', null, h1, 'foo')
+    return React.createElement(
+      'h1',
+      this.props,
+      'Hello ' + this.props.subject + ' world!!',
+    )
   }
 }
 
@@ -42,13 +43,9 @@ ReactDOM.render(
   React.createElement(
     'div',
     null,
-    React.createElement(HelloWorld),
-    React.createElement(HelloWorld),
-    React.createElement(HelloWorld),
-
-    // Example of using attributes.
-    // It looks like the second argument is an object literal / map.
-    React.createElement('a', {href: 'http://node.university'}, 'Node University')
+    React.createElement(HelloWorld, {id: 'ember', subject: 'Ember', title: 'Framework A'}),
+    React.createElement(HelloWorld, {id: 'backbone', subject: 'Angular', title: 'Framework B'}),
+    React.createElement(HelloWorld, {id: 'angular', subject: 'Backbone', title: 'Framework C'})
   ),
 
   // The second argument is always the same: where are we rendering our virtual
