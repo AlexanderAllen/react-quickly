@@ -14,6 +14,12 @@ class HelloWorld extends React.Component {
   // This method must return a single React element, createElement(), which is
   // created from another custom component class or an HTML tag. Both can have
   // nested elements.
+
+  // The component class example defines render() using ES6 style, in which you
+  // omit the colon and the word function. It’s exactly the same as defining an
+  // attribute (a.k.a. key or object property) with a value that’s a function:
+  // that is, typing render: function().
+
   render() {
 
     // Our createElement implementation returns a <div> with two h1 elements
